@@ -245,6 +245,9 @@ def start_measurement():
     np.savetxt(filename + '_DATA_angle_list.csv', angles_list, delimiter=';')
     np.savetxt(filename + '_temp.csv', temp, delimiter=';')
 
+    path_png = filename + '.png'
+    fig.savefig(path_png)
+    
     show_restart_window()
 
 app = tk.Tk()
