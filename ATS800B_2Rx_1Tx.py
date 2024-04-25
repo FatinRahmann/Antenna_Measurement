@@ -104,10 +104,12 @@ def start_measurement():
     #  Connection to the stepper motor controller
     gcs = GCSDevice('C-863.12')
     print("Connecting GCS")
-    gcs_sn = "021550330"
+    gcs_sn = "021550330" # Since we know the serial number of the device we can connect to it using this method
+    # gcs.InterfaceSetupDlg() # If we don't know which device to connect to we can show a dialog window to select it
     gcs.ConnectUSB(gcs_sn)
     print('GCS connected: {}'.format(gcs.qIDN().strip()))
-    axis = 1
+    axis = 1 # Used by the PI motor, we have only one dimension(axis): rotation
+
 
     #  Create a 1D array with the list of all the angle to take a measurement
     angles_list = np.arange(angle_min, angle_max + 1, angle_step)
