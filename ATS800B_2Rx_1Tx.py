@@ -235,7 +235,7 @@ def start_measurement():
 
 
     # Download results
-    path = "measurements/"
+    path = "measurements/" #Create and insert your own desired path
     date_test = date.today()
     formatted_date = date_test.strftime('%Y%m%d')
     filename = path + formatted_date + '_' + str(angle_min) + '_' + str(angle_max) + '_' + str(angle_step)
@@ -245,7 +245,7 @@ def start_measurement():
     np.savetxt(filename + '_DATA_angle_list.csv', angles_list, delimiter=';')
     np.savetxt(filename + '_temp.csv', temp, delimiter=';')
 
-    path_png = filename + '.png'
+    path_png = filename + '_plot.png'
     fig.savefig(path_png)
     
     show_restart_window()
